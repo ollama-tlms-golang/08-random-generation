@@ -564,3 +564,6 @@ Si vous souhaitez plus de contrôle sur la génération, vous pouvez également 
 - `presence_penalty`: pour encourager plus de diversité dans les résultats
 - `seed`: pour obtenir des résultats reproductibles si nécessaire
 
+Vous trouverez tout le code source relatif à se blog post par ici: https://github.com/ollama-tlms-golang/08-random-generation
+
+J'espère que cette lecture vous aura plus et à bientôt.
