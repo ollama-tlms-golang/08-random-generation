@@ -1,0 +1,30 @@
+services:
+  ollama-service:
+    build:
+      context: .
+      dockerfile: Dockerfile.ollama
+    ports:
+      - 4000:11434
+    restart: always
+
+ 
+  generate-names:
+    build: .
+    command: go run main.go; sleep infinity
+
+    environment:
+      - OLLAMA_HOST=http://ollama-service:11434
+      #- OLLAMA_HOST=http://host.docker.internal:11434
+      - LLM=qwen2.5:0.5b
+      #- LLM=qwen2.5:1.5b
+      #- LLM=qwen2.5:3b
+      #- LLM=nemotron-mini
+    volumes:
+      - .:/app
+    depends_on:
+      ollama-service:
+        condition: service_started
+    develop:
+      watch:
+        - action: rebuild
+          path: ./main.go

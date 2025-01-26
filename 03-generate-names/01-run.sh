@@ -1,0 +1,4 @@
+#!/bin/bash
+OLLAMA_HOST=http://localhost:11434 \
+LLM=qwen2.5:0.5b \
+go run main.go
